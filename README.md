@@ -1,9 +1,10 @@
-# zig-wasm-test
-A minimal Web Assembly example built from Zig's init-lib.
+# zig-wasm-string-test
+
+A minimal Web Assembly example of string handling, built from [zig-wasm-test](https://github.com/meheleventyone/zig-wasm-test).
 
 ## Building
 
-To build this project with a working Zig at 0.9.1 and TypeScript install at the project root just type.
+This project was developed using zig 0.10.0.
 
 ```
 zig build
@@ -11,12 +12,13 @@ zig build
 
 You need to move the resulting wasmtest.wasm file from /zig-cache/ to /www/. One has been committed if you're happy omitting this step.
 
-For good measure you can then build the TypeScript file:
-
-```
-cd www
-tsc wasmtest.ts
-```
-
 ## Running
-Start the web server of your choice serving the www folder and navigate to wasmtest.html in your browser of choice. The value 7 should be output in the console.
+
+Start the web server of your choice serving the www folder (e.g. `python3 -m http.server 8080`) and navigate to wasmtest.html in your browser of choice. You should see two lines:
+
+```
+hello
+hellohello
+```
+
+The former is used as the input to a zig function which doubles and its input.  The latter is the output of said function.
